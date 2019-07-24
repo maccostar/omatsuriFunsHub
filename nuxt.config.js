@@ -1,11 +1,14 @@
-
+const environment = process.env.NODE_ENV || 'development'
+const localEnv = require(`./env.${environment}.js`)
 module.exports = {
   mode: 'spa',
+  srcDir:'src/',
+  env: localEnv,
   /*
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: localEnv.name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -23,6 +26,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    // '@/src/assets/style/styles.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -33,8 +37,6 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://bootstrap-vue.js.org/docs/
-    'bootstrap-vue/nuxt',
   ],
   /*
   ** Build configuration
@@ -44,6 +46,15 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      // if (ctx.isDev && ctx.isClient) {
+      //   //eslint
+      //   config.module.rules.push({
+      //     enforce: "pre",
+      //     test: /\.(js|vue)$/,
+      //     loader: "eslint-loader",
+      //     exclude: /(node_modules)/
+      //   })
+      // }
     }
   }
 }
