@@ -1,14 +1,15 @@
 <template>
     <div v-show="show">
-        <input type="text" :value="taskName">
-        {{taskName}}
+        <input type="text" :value="form.taskName" @change="changeTaskName">
+        {{form.taskName}}
         <div>
             <h3>メンバー</h3>
             <button>add</button>
         </div>
         <div>
             <h3>説明</h3>
-            <textarea name="説明" id="" cols="30" rows="10" placeholder="ここに説明を入れてください。"></textarea>
+            <textarea name="説明" @change="changeTextArea" cols="30" rows="10" placeholder="ここに説明を入れてください。">{{ form.info }}</textarea>
+            {{ form.info }}
         </div>
         <div>
             <button @click="close">close</button>
@@ -19,7 +20,10 @@
 export default {
     data() {
         return {
-            taskName: "aaa"
+            form: {
+                taskName: "aaa",
+                info: ""
+            }
         }
     },
     props: {
@@ -31,7 +35,15 @@ export default {
     methods: {
         close() {
             this.$emit("emitClose")
-        }
+        },
+        changeTaskName(e) {
+           // 一つ前 e.target._value
+            this.form.taskName = e.target.value
+        },
+        changeTextArea(e) {
+           // 一つ前 e.target._value
+            this.form.info = e.target.value
+        },
     }
 }
 </script>
