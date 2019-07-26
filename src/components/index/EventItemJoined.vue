@@ -1,16 +1,18 @@
 <template>
-    <div>
+    <div class="flexbox">
         <!-- <img src="/test.jpg" /> -->
-        <div v-for="(item,i) in data" :key="i">
-        <img :src="item.src" :alt="item.title">
-        <div>{{ item.src }}</div> 
-        <div>{{ item.title }}</div>
-        <div>{{ item.startat }}</div>
-        <div>{{ item.endat }}</div>
-        <div>{{ item.status }}</div>
-        <div>{{ item.place }}</div>
+        <div v-for="(item,i) in data" :key="i" class="item">
+            <a :href="item.href">
+                <img :src="item.src" :alt="item.title">
+                <div class="src" >{{ item.src }}</div> 
+                <div class="title" >{{ item.title }}</div>
+                <div class="startat" >{{ item.startat }}</div>
+                <div class="endat">{{ item.endat }}</div>
+                <div class="status" >{{ item.status }}</div>
+                <div class="place" >{{ item.place }}</div>
+            </a>
         </div>
-        {{ data }}
+        <!-- {{ data }} -->
   </div>
 </template>
 <script>
@@ -23,4 +25,19 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .flexbox {
+       display: flex;
+    }
+    .item {
+        margin: 5px;
+        border: 1px #e3e4e8 solid;
+    }
+    .item img {
+        width: 160px;
+        height: auto;
+    }
+</style>
+
 
