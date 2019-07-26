@@ -1,6 +1,7 @@
 <template>
     <div v-show="show">
-        <input type="text" name="" id="" value="task名">
+        <input type="text" :value="taskName">
+        {{taskName}}
         <div>
             <h3>メンバー</h3>
             <button>add</button>
@@ -16,6 +17,11 @@
 </template>
 <script>
 export default {
+    data() {
+        return {
+            taskName: "aaa"
+        }
+    },
     props: {
         show: {
             type: Boolean,
