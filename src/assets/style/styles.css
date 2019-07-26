@@ -1,3 +1,9 @@
 html {
     background: #fff
 }
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}

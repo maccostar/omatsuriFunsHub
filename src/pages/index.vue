@@ -1,6 +1,7 @@
 <template>
   <div>
     <Menu />
+    <img src="@/static/mainimage.jpg" alt="">
     <div class= "titlebox">
       <h2>
         <img src="@/static/iconmonstr-megaphone-12-240.png" alt="">
@@ -52,14 +53,17 @@ export default {
       // console.log(this.$store.getters)
       return this.$store.getters.data
     }
-
   }  
 }
 </script>
 
 <style scoped>
   img {
-    width: 30px;
+    width: 100%;
+    height: auto;
+  }
+  h2 > img {
+    width: 20px;
     height: auto;
   }
 </style>

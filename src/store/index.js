@@ -12,6 +12,7 @@ export const getters = {
 
 export const mutations = {
     setData(state, payload) {
+        console.log(payload);
         state.data = payload
     },
     setDataJoin(state, payload) {
@@ -32,7 +33,9 @@ export const actions = {
                 startat: '2019-07-24',
                 endat: '2019-07-24',
                 status: 'open',
-                place: '平塚市'
+                place: '平塚市',
+                isJoining: true,
+                isFavorite: false,
             },
             {
                 src: '/halloween.jpg',
@@ -40,8 +43,20 @@ export const actions = {
                 startat: '2019-07-24',
                 endat: '2019-07 -24',
                 status: 'open',
-                place: '川崎市'
-            }
+                place: '川崎市',
+                isJoining: true,
+                isFavorite: false,
+            },
+            {
+                src: '/halloween.jpg',
+                title: '川崎ハロウィンをもっと広げよう！',
+                startat: '2019-07-24',
+                endat: '2019-07 -24',
+                status: 'open',
+                place: '川崎市',
+                isJoining: false,
+                isFavorite: false,
+            },
         ])
     },
     setDataJoin({ commit }, payload) {
